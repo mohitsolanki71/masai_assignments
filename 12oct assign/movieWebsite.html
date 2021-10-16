@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Dunia</title>
+    <style>
+        #outer{
+            background-image: url("https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvb2wlMjBwYXR0ZXJufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+            height: 3000px;
+        }
+        h1{
+            margin-top: 30px;
+            text-align: center;
+            color: wheat;
+        }
+        #box{
+            margin: auto;
+            width: 55%;
+            background-color: #263238;
+            border-radius: 10px;
+        }
+        #movie{
+            width: 60%;
+            height: 30px;
+            border-radius: 20px;
+        }
+        #input{
+            text-align: center;
+        }
+        #movies{
+            position: absolute;
+            left:34%;
+            margin: auto;
+            height: 80px;
+            width: 60%;
+            overflow-y: scroll;
+            border-top: none;
+            display: none;
+        }
+        #movies::-webkit-scrollbar {
+             display: none;
+        }
+        .show{
+            display: flex;
+        }
+        .show img{
+            width:50px;
+            height: 50px;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+        #display{
+            text-align: center;
+            margin-top: 6%;
+            font-size: 20px;
+        }
+
+        #popular{
+            margin: 5% 5% 5% 5%;
+            height: 600px;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap: 5%;
+            justify-content: center;
+
+        }
+        #popular div:hover{
+            transform: scale(1.2);
+        }
+        #popular h3{
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        #popular img{
+            width:100%;
+            height: 300px;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <div id="outer">
+        <div id="box">
+            <h1>Movies Counter</h1>
+
+            <div id="input">
+                <input oninput="debounce(main, 1000)" type="text" id="movie" placeholder="Enter Movie name here">
+                <div id="movies"></div>
+            </div>
+        </div>
+
+        <div id="display"></div>
+
+        <h2>Popular Movies:</h2>
+        <div id="popular"></div>
+        
+    </div>
+    
+    <script>
+
+        let timerId;
+        var container = document.getElementById("movies");
+        let display_data = document.getElementById("display");
+
+        async function searchMovies(movie_name){
+
+            try{
+                let res = await fetch(`http://www.omdbapi.com/?apikey=9539b358&s=${movie_name}`);
+
+                let data = await res.json();
+                console.log(data);
+
+                if(movie_name.length > 0){
+                    container.style.display = "block";
+                } else{
+                    container.style.display = "none"
+                }
+
+                return data;
+            } catch(err){
+                console.log(err);
+            }
+        }
+
+        function append_movie(movies){
+
+            if(movies === undefined){
+                return false;
+            }
+
+            container.innerHTML = null;
+
+            movies.forEach((movie)=>{
+
+                let div= document.createElement("div");
+                div.classList.add("show");
+
+                let smallPic = document.createElement("img");
+                smallPic.src = movie.Poster;
+
+                let p = document.createElement("p");
+                p.innerText = movie.Title;
+
+                p.addEventListener("click", function(){
+
+                    display_data.innerHTML = null;
+
+                    let display_img = document.createElement("img");
+                    display_img.src = movie.Poster;
+
+                    let space = document.createElement("br");
+
+                    let display_title = document.createElement("p");
+                    display_title.innerText = movie.Title;
+
+                    display_data.append(display_img, space, display_title);
+                })
+                
+                div.append( smallPic , p);
+                container.append(div);
+            });
+        }
+
+        async function main(){
+
+            let name = document.getElementById("movie").value;
+
+            let res = await searchMovies(name);
+
+            let movies_data = res.Search;
+
+            append_movie( movies_data)
+            console.log(res);
+        }
+
+        function debounce (func, delay){
+
+            if(timerId){
+                clearInterval(timerId);
+            }
+
+            timerId = setTimeout(()=>{
+
+                func();
+            }, delay)
+        }
+
+        // for appending popular movies on page
+
+        async function popular_movie(){
+
+            let res = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=ac3b998920bc7afe85760178fc072684");
+
+            let data = await res.json();
+
+            console.log(data);
+
+            append_movies(data.results);
+
+        }
+
+        let popular_container = document.getElementById("popular");
+
+        function append_movies(movies){
+
+            movies.forEach((movie)=>{
+                console.log(movie.title);
+
+                let div = document.createElement("div");
+
+                let poster = document.createElement("img");
+                poster.src = "https://image.tmdb.org/t/p/w500"+movie.poster_path;
+
+                let title = document.createElement("h3");
+                title.innerText = movie.title;
+
+                let rating = document.createElement("p");
+                rating.innerText = "imdb :" +movie.vote_average;
+
+                div.append(poster, title, rating);
+                popular_container.append(div);
+            })
+        }
+
+        popular_movie();
+                
+
+    </script>
+
+</body>
+</html>
