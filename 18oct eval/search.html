@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search news</title>
+    <style>
+        #input{
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #search{
+            width: 400px;
+            height: 30px;
+        }
+        #button{
+            width: 100px;
+            height: 35px;
+        }
+        #news{
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        #news div{
+            border: 1px solid grey;
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: 23% 23% 23%;
+            grid-gap: 30px;
+        }
+        #news div img{
+            width: 100%;
+            height: 150px;
+        }
+        .bold{
+            font-size: 20px;
+        }
+        .grey{
+            color: grey;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="input">
+        <input type="text" id="search" placeholder="Search News">
+        <button onclick="searchNews()" id="button">search</button>
+    </div>
+    <div id="news"></div>
+
+    <script>
+
+        let container = document.getElementById("news");
+
+        async function searchNews(){
+            let query= document.getElementById("search").value;
+
+            let res = await fetch(`http://newsapi.org/v2/everything?q=${query}&from=2021-10-18&sortBy=popularity&apiKey=bd7dcfad4f02421fa599dcfda5dc1fc2`);
+
+            let data = await res.json();
+
+            console.log(data);
+
+            appendSearch(data.articles);
+
+        }
+
+        function appendSearch(articles){
+
+            container.innerHTML = null;
+
+            articles.forEach((article)=>{
+
+                let div = document.createElement("div");
+
+                let title = document.createElement("p");
+                title.innerText = article.title;
+                title.classList.add("bold");
+
+                let date = document.createElement("p");
+                date.innerText = article.publishedAt;
+
+                let description = document.createElement("p");
+                description.innerText = article.description;
+                description.classList.add("grey");
+
+                let image = document.createElement("img");
+                image.src = article.urlToImage;
+
+
+                div.append(title,description, image);
+                container.append(div);
+            })
+        }
+
+    </script>
+
+</body>
+</html>
