@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News home page</title>
     <style>
+        #News{
+             margin-left: 20%;
+        }   
+        h1{
+            font-size: 40px;
+            text-align: center;
+            color: wheat;
+            background-color: tomato;
+        }
         #article{
             display: grid;
             grid-template-columns: repeat(3,23%);
+            grid-gap: 10px;
         }
         #article img{
             width: 100%;
@@ -22,6 +32,10 @@
             top: 30px;
             right:5%;
         }
+        #button{
+            width:100px;
+            height:20px
+        }
     </style>
 </head>
 <body>
@@ -32,7 +46,7 @@
         </div>
 
         <div id="search">
-            <a href="search.html">Search</a>
+            <button onclick="nextPage()" id="button">Search</button>
         </div>
     </div>
 
@@ -90,6 +104,11 @@
         }
 
     topNews();
+
+    function nextPage(){
+
+        window.location.assign("./search.html");
+    }
     </script>
 </body>
 </html>
