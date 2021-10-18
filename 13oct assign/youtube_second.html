@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Tube</title>
+    <style>
+        input{
+            position: absolute;
+            top:20px;
+            left:24.5%;
+            width: 40%;
+            height: 30px;
+            padding-left: 10px;
+        }
+        button{
+            position: absolute;
+            top:20px;
+            left:65.5%;
+            width: 50px;
+            height: 35px;
+        }
+        #side{
+            position: absolute;
+            top:70px;
+        }
+        #videos{
+            margin-left: 18%;
+            margin-right: 0px;
+            display: grid;
+            grid-template-columns: repeat(4,24%);
+            grid-gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="youtube_head.png">
+        <input type = "text" id="search" placeholder="Search">
+        <button onclick="searchVideos()">S</button>
+    </div>
+    <div id="side">
+        <img src="youtube_side.png">
+    </div>
+    <div id="videos">
+        
+    </div>
+
+    <script>
+        //https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=India&key=[YOUR_API_KEY] HTTP/1.1
+
+        let popular_container = document.getElementById("videos");
+
+        async function popular(){
+
+            let res = await fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&key=AIzaSyCD4NsscPph0IaHnu9PwS52pTdlrzTN71Q");
+
+            let data = await res.json();
+
+            appendPopular(data.items)
+        }
+
+        function appendPopular(populars){
+
+            populars.forEach(({id})=>{
+
+                let div = document.createElement("div");
+
+                div.innerHTML = `<iframe width="250" height="150" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+                popular_container.append(div);
+
+            })
+
+        }
+
+        popular();
+
+        async function searchVideos(){
+
+            let query = document.getElementById("search").value;
+
+            let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?maxResults=50&q=${query}&type=video&key=AIzaSyCD4NsscPph0IaHnu9PwS52pTdlrzTN71Q`);
+
+            let data = await res.json();
+
+            console.log(data);
+
+            appendVideos(data.items);
+        }
+
+        function appendVideos(videos){
+
+            popular_container.innerHTML = null;
+
+            videos.forEach(({id:{videoId}})=>{
+
+                let div = document.createElement("div");
+
+                div.innerHTML = `<iframe width="250" height="150" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+                popular_container.append(div);
+            })
+        }
+    </script>
+</body>
+</html>
