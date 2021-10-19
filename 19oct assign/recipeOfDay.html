@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search recipe</title>
+    <link rel="stylesheet" href="./styles/search.css">
+</head>
+<body>
+    <div id="navbar">
+        
+    </div>
+    <div id="container"></div>
+</body>
+</html>
+<script type="module">
+    import {navbar, input} from "./component/navbar.js";
+
+    import {getData, append} from "./scripts/search.js"
+
+    
+
+    let navbar_div = document.getElementById("navbar");
+    navbar_div.innerHTML = navbar();
+
+    let container = document.getElementById("container");
+
+    async function show(){
+
+        try{
+            container.innerHTML = null;
+
+            let res = await getData(`http://www.themealdb.com/api/json/v1/1/random.php`);
+
+            console.log(res.meals);
+
+            append(res.meals, container);
+        } catch(e){
+            console.log(e);
+        }
+    }
+    show()
+    
+</script>
