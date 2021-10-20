@@ -67,4 +67,5 @@ function debounce(){
     }, 1000)
 }
 export { debounce };
+export {getData, append};
 
