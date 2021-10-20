@@ -13,7 +13,6 @@ function input(){
 
     return `
                 <input type="text" id="search" placeholder="search recipe">
-                <button id="show">Search</button>
             `
 
 }

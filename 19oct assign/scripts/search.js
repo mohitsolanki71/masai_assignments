@@ -34,7 +34,37 @@ function append(recipes, container){
     });
 }
 
+async function show(){
 
+    try{
+        container.innerHTML = null;
 
-export { getData, append };
+        let query = document.getElementById("search").value;
+
+        if(query.length == 0){
+            container.style.display ="none";
+        }
+
+        let res = await getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+
+        console.log(res.meals);
+
+        append(res.meals, container);
+    } catch(e){
+        console.log(e);
+    }
+}
+let timerId;
+function debounce(){
+
+    if( timerId){
+        clearTimeout(timerId);
+    }
+
+    timerId = setTimeout(function (){
+
+        show();
+    }, 1000)
+}
+export { debounce };
 

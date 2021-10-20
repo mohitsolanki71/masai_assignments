@@ -18,7 +18,7 @@
 <script type="module">
     import {navbar, input} from "./component/navbar.js";
 
-    import {getData, append} from "./scripts/search.js"
+    import {debounce} from "./scripts/search.js";
 
     
 
@@ -30,26 +30,9 @@
 
     let container = document.getElementById("container");
 
-    let btn = document.getElementById("show");
-    btn.addEventListener("click", show);
+    let btn = document.getElementById("search");
+    btn.addEventListener("input", debounce);
 
-    
 
-    async function show(){
-
-        try{
-            container.innerHTML = null;
-
-            let query = document.getElementById("search").value;
-
-            let res = await getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
-
-            console.log(res.meals);
-
-            append(res.meals, container);
-        } catch(e){
-            console.log(e);
-        }
-    }
     
 </script>
