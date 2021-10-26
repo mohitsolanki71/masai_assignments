@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header{
+    text-align: center;
+    color: blanchedalmond;
+    background-color: #1E88E5;
+    font-size: 50px;
+}
+#selectors{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#selectors div{
+    margin-left: 20px;
+}
+#container{
+    text-align: center;
+    margin-top: 30px;
+}
+#input, #output{
+    font-size: 20px;
+    padding: 20px;
+}
+#button{
+    margin-left: 45%;
+    margin-top: 20px;
+    width: 120px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 20px;
+    color:white;
+    background-color: #1E88E5;
+}
+#copy{
+    position: absolute;
+    top:60%;
+    right: 24%;
+    color: #757575;
+    cursor:pointer;
+}
