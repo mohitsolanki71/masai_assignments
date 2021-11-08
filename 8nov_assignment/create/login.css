@@ -13,3 +13,7 @@
     font-size: 20px;
     font-weight: bold;
 }
+input{
+    display:flex;
+    margin: 10px;
+}

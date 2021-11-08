@@ -19,5 +19,29 @@ function signup(e){
         description: form.description.value,
     }
 
-    console.log(user_data);
+    user_data = JSON.stringify(user_data);
+
+    fetch("https://masai-api-mocker.herokuapp.com/auth/register",{
+
+        method:"POST",
+
+        body: user_data,
+
+        headers: {
+            "content-Type":"application/json",
+        },
+    })
+
+    .then((res)=>{
+
+        return res.json();
+    })
+
+    .then((res)=>{
+        console.log(res);
+    })
+
+    .catch((err)=>{
+        console.log(err);
+    });
 }
