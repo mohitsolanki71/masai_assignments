@@ -95,7 +95,18 @@ app.get("/jobs/:work_from_home", async(req, res) => {
     }
 });
 
+app.get("/jobs/ByRating", async(req, res)=>{
 
+    try{
+
+        const job = await Jobs.find().sort({"rating":-1}).lean().exec();
+        return res.status(201).send({job});
+
+    } catch(e){
+
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+})
 // detail CRUD ended
 
 // company CRUD 
@@ -124,7 +135,43 @@ app.get("/company", async (req, res) => {
 
         return res.status(500).json({message: e.message, status:"Failed"});
     }
-})
+});
+
+app.get("/company/:company", async(req, res) => {
+
+    try{
+        const company = await Company.findOne({company:req.params.company}).lean().exec();
+
+        return res.send(company);
+
+    } catch(e){
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+});
+
+app.get("/company/max_opening", async (req, res) => {
+
+    try{
+        const company = await Company.findOne().sort({"job_opening":-1}).lean().exec();
+
+        return res.status(201).send({company});
+    }catch(e){
+
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+});
+
+app.delete("/company/:id", async(req, res)=>{
+
+    try{
+        const company = await Company.findByIdAndDelete(req.params.id).lean().exec();
+
+        return res.status(201).send({company});
+    } catch(e){
+
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+});
 
 
 
