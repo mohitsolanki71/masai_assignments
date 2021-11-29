@@ -26,6 +26,21 @@ const Jobs = mongoose.model("job", jobSchema);
 
 // detail schemma ended
 
+// company Schemma
+
+const companySchema = new mongoose.Schema({
+    
+    company: {type:String, required:true},
+    detail: {type:String, required:true},
+    job_opening: {type:String, required:true},
+},{
+    versionKey:false,
+    timeStamps:true,
+});
+
+const Company = mongoose.model("company", companySchema);
+
+// company schemma ended
 const app = express();
 app.use(express.json());
 
@@ -82,6 +97,34 @@ app.get("/jobs/:work_from_home", async(req, res) => {
 
 
 // detail CRUD ended
+
+// company CRUD 
+
+app.post("/company", async(req, res)=>{
+
+    try{
+
+        const company = await Company.create(req.body);
+        return res.status(201).send(company);
+
+    }catch(e){
+
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+});
+
+app.get("/company", async (req, res) => {
+
+    try{
+
+        const company = await Company.find().lean().exec();
+
+        return res.send(company);
+    } catch(e){
+
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+})
 
 
 
