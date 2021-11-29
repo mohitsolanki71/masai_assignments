@@ -83,10 +83,10 @@ app.get("/jobs/:city", async(req, res) => {
     }
 });
 
-app.get("/jobs/:work_from_home", async(req, res) => {
+app.get("/work_from_home/:work_from_home", async(req, res) => {
 
     try{
-        const job = await Jobs.find({work_from_home:+(req.params.work_from_home)}).lean().exec();
+        const job = await Jobs.find({work_from_home:req.params.work_from_home}).lean().exec();
 
         return res.send(job);
 
@@ -95,18 +95,32 @@ app.get("/jobs/:work_from_home", async(req, res) => {
     }
 });
 
-app.get("/jobs/ByRating", async(req, res)=>{
+app.get("/notice_period/:notice_period", async(req, res) => {
+
+    try{
+        const job = await Jobs.find({notice_period:req.params.notice_period}).lean().exec();
+
+        return res.send(job);
+
+    } catch(e){
+        return res.status(500).json({message: e.message, status:"Failed"});
+    }
+});
+
+app.get("/ByRating", async(req, res)=>{
 
     try{
 
         const job = await Jobs.find().sort({"rating":-1}).lean().exec();
+
+        console.log("hello");
         return res.status(201).send({job});
 
     } catch(e){
 
         return res.status(500).json({message: e.message, status:"Failed"});
     }
-})
+});
 // detail CRUD ended
 
 // company CRUD 
@@ -149,12 +163,11 @@ app.get("/company/:company", async(req, res) => {
     }
 });
 
-app.get("/company/max_opening", async (req, res) => {
+app.get("/max_opening", async (req, res) => {
 
     try{
         const company = await Company.findOne().sort({"job_opening":-1}).lean().exec();
-
-        return res.status(201).send({company});
+        return res.send({company});
     }catch(e){
 
         return res.status(500).json({message: e.message, status:"Failed"});
