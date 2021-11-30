@@ -102,6 +102,8 @@ app.get("/notice_period/:notice_period", async(req, res) => {
 
         return res.send(job);
 
+        // one is for yes 2 months and 0 is for not 2 month
+
     } catch(e){
         return res.status(500).json({message: e.message, status:"Failed"});
     }
