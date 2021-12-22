@@ -7,15 +7,26 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/logo-social.png":
+/*!*****************************!*\
+  !*** ./src/logo-social.png ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"240fad889811518e0b5bd80501dce9d1.png\");\n\n//# sourceURL=webpack://assign/./src/logo-social.png?");
+
+/***/ }),
 
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.e(/*! import() */ \"src_index_css\").then(__webpack_require__.bind(__webpack_require__, /*! ./index.css */ \"./src/index.css\"));\r\n\r\nlet title = document.createElement(\"h1\")\r\ntitle.innerText = \"Assignment Notes\";\r\n\r\ndocument.getElementById(\"name\").appendChild(title);\r\n\r\nlet task = document.getElementById(\"task\");\r\nlet input = document.createElement(\"input\");\r\ninput.type=\"text\";\r\ninput.placeholder=\"enter your task here\";\r\n\r\nlet todo = document.getElementById(\"todo\");\r\n\r\nlet button = document.createElement(\"button\");\r\nbutton.innerText = \"submit\";\r\nbutton.addEventListener(\"click\", sub);\r\n\r\n\r\nfunction sub(){\r\n    let list = document.createElement(\"li\");\r\n    \r\n    list.innerText = input.value;\r\n    \r\n    if(input.value.length != 0){\r\n        \r\n        todo.append(list);\r\n    }\r\n\r\n\r\n}\r\n\r\ntask.append(input, button);\r\n\n\n//# sourceURL=webpack://assign/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_social_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo-social.png */ \"./src/logo-social.png\");\n__webpack_require__.e(/*! import() */ \"src_index_css\").then(__webpack_require__.bind(__webpack_require__, /*! ./index.css */ \"./src/index.css\"));\r\n\r\n\r\nlet title = document.createElement(\"h1\");\r\ntitle.innerText = \"Assignment Notes\";\r\n\r\nlet logo = document.createElement(\"img\");\r\nlogo.src= _logo_social_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\r\n\r\ndocument.getElementById(\"name\").append(logo, title);\r\n\r\nlet task = document.getElementById(\"task\");\r\nlet input = document.createElement(\"input\");\r\ninput.type=\"text\";\r\ninput.placeholder=\"enter your task here\";\r\n\r\nlet todo = document.getElementById(\"todo\");\r\n\r\nlet button = document.createElement(\"button\");\r\nbutton.innerText = \"submit\";\r\nbutton.addEventListener(\"click\", sub);\r\n\r\n\r\nfunction sub(){\r\n    let list = document.createElement(\"li\");\r\n    \r\n    list.innerText = input.value;\r\n    \r\n    if(input.value.length != 0){\r\n        \r\n        todo.append(list);\r\n    }\r\n\r\n    input.value = null;\r\n}\r\n\r\ntask.append(input, button);\r\n\n\n//# sourceURL=webpack://assign/./src/index.js?");
 
 /***/ })
 

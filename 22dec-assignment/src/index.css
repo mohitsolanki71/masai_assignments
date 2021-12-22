@@ -18,6 +18,9 @@ body {
     color:white;
     text-align: center;
 }
+img{
+    width:100px;
+}
 #task{
     margin-top: 5px
 }

@@ -1,9 +1,13 @@
 import("./index.css");
+import image from "./logo-social.png";
 
-let title = document.createElement("h1")
+let title = document.createElement("h1");
 title.innerText = "Assignment Notes";
 
-document.getElementById("name").appendChild(title);
+let logo = document.createElement("img");
+logo.src= image;
+
+document.getElementById("name").append(logo, title);
 
 let task = document.getElementById("task");
 let input = document.createElement("input");
@@ -27,7 +31,7 @@ function sub(){
         todo.append(list);
     }
 
-
+    input.value = null;
 }
 
 task.append(input, button);
