@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url("https://searchengineland.com/figz/wp-content/seloads/2014/08/writing-content-notes-ss-1920.jpg");
+
+}
+#container{
+    width:500px;
+    border: 2px solid white;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 30%;
+}
+#name{
+    border: 1px solid black;
+    color:white;
+    text-align: center;
+}
+#task{
+    margin-top: 5px
+}
+input{
+    padding:5px;
+}
+#todo{
+    border: 1px solid red;
+}
+li{
+    color:white;
+    font-size: 20px;
+}
