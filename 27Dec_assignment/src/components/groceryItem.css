@@ -1,0 +1,18 @@
+.itemAdded{
+    margin-top: 10px;
+    font-weight: bold;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    padding:5px;
+    list-style-type:disc;
+}
+.removeButton{
+
+    height: 30px;
+    margin-top: 9px;
+    border-radius: 10px;
+    padding:5px;
+    background-color: greenyellow;
+}
