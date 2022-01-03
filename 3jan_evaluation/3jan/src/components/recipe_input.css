@@ -1,0 +1,10 @@
+input {
+  display: flex;
+  margin: 10px;
+}
+#input_div {
+  display: flex;
+  border: 1px solid black;
+  width: 300px;
+  padding: 10px;
+}

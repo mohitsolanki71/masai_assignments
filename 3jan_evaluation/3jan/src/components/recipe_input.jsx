@@ -1,16 +1,43 @@
-import {Input, Div, Button} from './recipe_comp';
+import { useState } from "react";
+import "./recipe_input.css";
 
-export const Recipe_Input = ()=>{
+export const Recipe= ()=>{
 
+    const [form , setForm] = useState({
+        
+        title:"",
+        ingredients:"",
+        time:"",
+        image:"",
+        instructions:"",
+    });
+
+     const handleChange=(e)=>{
+        
+        const {name, value} = e.target;
+
+        setForm({
+            ...form,
+            [name]: value,
+        });
+     }
+
+     const handleSubmit = (e) => {
+
+        e.preventDefault();
+        console.log(form);
+    }
     return(
-        <Div>
-            <Input type="text" placeholder='title' ></Input>
-            <Input type="text" placeholder='ingredients'></Input>
-            <Input type="text" placeholder='time to cook'></Input>
-            <Input type="text" placeholder='image'></Input>
-            <Input type="text" placeholder='instructions'></Input>
+        <div Id="input_div">
+            <form onSubmit={handleSubmit}>
+                <input name="title" type="text" placeholder="title" onChange={handleChange}></input>
+                <input name="ingredients" type="text" placeholder="ingredients" onChange={handleChange}></input>
+                <input name="time" type="text" placeholder="time to cook" onChange={handleChange}></input>
+                <input name="image" type="text" placeholder="image" onChange={handleChange}></input>
+                <input name="instructions" type="text" placeholder="instructions" onChange={handleChange}></input>
 
-            <Input type="submit">Submit</Input>
-        </Div>
+                <input type="submit"></input>
+            </form>
+        </div>
     )
 }
