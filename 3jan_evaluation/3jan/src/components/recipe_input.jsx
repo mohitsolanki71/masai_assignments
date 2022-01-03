@@ -11,16 +11,15 @@ export const Recipe= ()=>{
         image:"",
         instructions:"",
     });
-
     const [recipe, setRecipe] = useState([]);
 
     useEffect(()=>{
-        getTodo();
-    });
+        getRecipe();
+    },[]);
 
-    const getTodo = ()=>{
+    const getRecipe = ()=>{
 
-        fetch(`http://localhost:3004/recipe?_page=1&_limit=4`).then(d=> d.json()).then(res=>{
+        fetch(`http://localhost:3004/recipe`).then(d=> d.json()).then(res=>{
             setRecipe(res);
         });
 
@@ -47,27 +46,41 @@ export const Recipe= ()=>{
             headers: {
                 "content-type": "application/json"
             },
+        }).then(()=>{
+            getRecipe();
         });
     }
-    return(
-        <div id="container" >
-            <div id="input_div">
-                <form onSubmit={handleSubmit}>
-                    <input name="title" type="text" placeholder="title" onChange={handleChange}></input>
-                    <input name="ingredients" type="text" placeholder="ingredients" onChange={handleChange}></input>
-                    <input name="time" type="text" placeholder="time to cook" onChange={handleChange}></input>
-                    <input name="image" type="text" placeholder="image" onChange={handleChange}></input>
-                    <input name="instructions" type="text" placeholder="instructions" onChange={handleChange}></input>
+    const sendData = ()=>{
 
-                    <input type="submit"></input>
-                </form>
+    }
+
+    return(
+        <div >
+            <div id="container1" >
+                <div id="input_div">
+                    <form onSubmit={handleSubmit}>
+                        <input name="title" type="text" placeholder="title" onChange={handleChange}></input>
+                        <input name="ingredients" type="text" placeholder="ingredients" onChange={handleChange}></input>
+                        <input name="time" type="text" placeholder="time to cook" onChange={handleChange}></input>
+                        <input name="image" type="text" placeholder="image" onChange={handleChange}></input>
+                        <input name="instructions" type="text" placeholder="instructions" onChange={handleChange}></input>
+
+                        <input type="submit"></input>
+                    </form>
+                </div>
+                
+                <div id="output_div">
+                    <h3>Recipe Available</h3>
+                    {recipe.map((e, i)=>(
+                    <li onClick={sendData} id="textOutpt" key={i}> {e.title}</li>
+                    ))}
+                </div>
             </div>
-            
-            <div id="output_div">
-                <h3>output div</h3>
-                {recipe.map((e, i)=>(
-                <li id="textOutpt" key={i}> {e.title}</li>
-                ))}
+            <div id="container2">
+                <h2>its container 2</h2>
+                <div>
+
+                </div>
             </div>
         </div>
     )

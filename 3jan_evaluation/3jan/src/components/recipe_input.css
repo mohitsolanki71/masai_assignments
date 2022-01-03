@@ -2,10 +2,14 @@ input {
   display: flex;
   margin: 10px;
 }
-#container {
+#container1 {
   display: flex;
   border: 1px solid black;
   justify-content: space-between;
+  height: 300px;
+}
+#container2 {
+  border: 1px solid yellow;
 }
 #input_div {
   margin: 30px;
@@ -17,7 +21,9 @@ input {
   margin: 30px;
   border: 1px solid black;
   width: 300px;
+  overflow-y: scroll;
 }
 #textOutpt {
-  color: whitesmoke;
+  color: #781d42;
+  font-weight: bold;
 }
