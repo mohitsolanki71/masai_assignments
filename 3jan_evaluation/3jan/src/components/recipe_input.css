@@ -2,9 +2,22 @@ input {
   display: flex;
   margin: 10px;
 }
-#input_div {
+#container {
   display: flex;
   border: 1px solid black;
-  width: 300px;
+  justify-content: space-between;
+}
+#input_div {
+  margin: 30px;
+  border: 1px solid black;
+  width: 250px;
   padding: 10px;
+}
+#output_div {
+  margin: 30px;
+  border: 1px solid black;
+  width: 300px;
+}
+#textOutpt {
+  color: whitesmoke;
 }
