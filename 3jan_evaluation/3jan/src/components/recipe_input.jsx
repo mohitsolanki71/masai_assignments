@@ -26,6 +26,15 @@ export const Recipe= ()=>{
 
         e.preventDefault();
         console.log(form);
+
+        const payload = form;
+        fetch("http://localhost:3004/recipe", {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+                "content-type": "application/json"
+            },
+        });
     }
     return(
         <div Id="input_div">
