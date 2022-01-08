@@ -1,0 +1,8 @@
+#formBox {
+  border: 1px solid red;
+  padding: 10px;
+}
+
+#formBox input {
+  margin: 5px;
+}
