@@ -1,0 +1,32 @@
+#container1 {
+  border: 1px solid black;
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  padding: 10px;
+}
+#form {
+  border: 1px solid black;
+  margin-left: 10px;
+}
+#form input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#table {
+  border: 1px solid red;
+  padding: 5px;
+  margin-right: 10px;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 2px;
+}
+#button {
+  text-align: center;
+}
+#profile_pic img {
+  width: 50px;
+}
