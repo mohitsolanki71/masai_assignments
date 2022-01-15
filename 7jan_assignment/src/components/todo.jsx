@@ -84,8 +84,8 @@ export const Todo = ()=>{
 
             <div id="output">
                 {todos.map((e, i)=>(
-                    <div key={i} id="element">
-                        <div id="element1"><b> {e.title} </b> - {e.status? "Done" : "Not Done"} </div>
+                    <div key={i} className="element">
+                        <div className="element1"><b> {e.title} </b> -<p>{e.status? "Done" : "Not Done"}</p>  </div>
                         <button onClick={()=>{handleToggle(e.id, e.status)}}>Toogle</button>
                         <button onClick={()=>{deleteElement(e.id)}}>Delete</button>
                     </div>
