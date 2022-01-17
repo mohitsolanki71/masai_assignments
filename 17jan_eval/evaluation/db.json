@@ -1,3 +1,13 @@
 {
-    "jobs":[]
+  "jobs": [
+    {
+      "comapany_name": "masai",
+      "job_title": "I A",
+      "salary_range": "500000",
+      "job_discription": "teach ia in masai",
+      "location": "delhi",
+      "job_type": "contract",
+      "id": 1
+    }
+  ]
 }

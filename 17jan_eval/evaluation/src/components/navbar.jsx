@@ -8,12 +8,16 @@ export const Navbar = () => {
     localStorage.removeItem("userToken");
     navigate("/");
   };
+
+  const jobs = () => {};
+
   return (
     <div id="navContainer">
       <div id="navImage">
-        <img src="https://www.clipartmax.com/png/middle/32-328856_job-search-icon-job.png" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxFgkpc2Dmd4r2wdmjlZkqTbMS772Um8ghA&usqp=CAU" />
       </div>
       <div id="navButtons">
+        <button onClick={jobs}>Jobs</button>
         <button onClick={logOut}>Log Out</button>
       </div>
     </div>
