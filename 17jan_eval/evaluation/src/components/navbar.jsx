@@ -16,7 +16,9 @@ export const Navbar = () => {
   return (
     <div id="navContainer">
       <div id="navImage">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxFgkpc2Dmd4r2wdmjlZkqTbMS772Um8ghA&usqp=CAU" />
+        <Link to={"/"}>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxFgkpc2Dmd4r2wdmjlZkqTbMS772Um8ghA&usqp=CAU" />
+        </Link>
       </div>
       <div id="navButtons">
         <button onClick={jobs}>Jobs</button>

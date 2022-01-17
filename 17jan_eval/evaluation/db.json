@@ -17,6 +17,24 @@
       "location": "delhi",
       "job_type": "remote",
       "id": 2
+    },
+    {
+      "comapany_name": "shivam infotech",
+      "job_title": "hr manager",
+      "salary_range": "7500000",
+      "job_discription": "post for hr manager",
+      "location": "banglore",
+      "job_type": "remote",
+      "id": 3
+    },
+    {
+      "comapany_name": "mohit",
+      "job_title": "hr",
+      "salary_range": "54000",
+      "job_discription": "post for hr manager",
+      "location": "banglore",
+      "job_type": "contract",
+      "id": 4
     }
   ]
 }
