@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import "./login.css";
 
 export const Login = () => {
   const [form, setForm] = useState([]);
@@ -15,7 +16,7 @@ export const Login = () => {
     let user_token = JSON.parse(localStorage.getItem("userToken"));
     if (user_token) {
       handleToken(user_token.token);
-      navigate("/todo");
+      navigate("/addjob");
       console.log("User:", user_token);
     }
   };
@@ -45,7 +46,7 @@ export const Login = () => {
           } else {
             localStorage.setItem("userToken", JSON.stringify(res));
           }
-          navigate("/todo");
+          navigate("/addjob");
         } else {
           alert(res.error);
         }
@@ -53,7 +54,7 @@ export const Login = () => {
   };
 
   return (
-    <div>
+    <div id="loginContainer">
       <input
         type="text"
         placeholder="Enter Email here"

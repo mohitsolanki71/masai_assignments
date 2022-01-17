@@ -8,6 +8,15 @@
       "location": "delhi",
       "job_type": "contract",
       "id": 1
+    },
+    {
+      "comapany_name": "mahindra",
+      "job_title": "project manager",
+      "salary_range": "600000",
+      "job_discription": "be a project manager",
+      "location": "delhi",
+      "job_type": "remote",
+      "id": 2
     }
   ]
 }

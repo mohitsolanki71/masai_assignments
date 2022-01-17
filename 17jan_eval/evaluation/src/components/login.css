@@ -1,0 +1,12 @@
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border-top: 1px solid black;
+  padding: 20px;
+  width: 300px;
+}
+
+#loginContainer input {
+  margin-bottom: 10px;
+}

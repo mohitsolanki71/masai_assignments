@@ -9,7 +9,9 @@ export const Navbar = () => {
     navigate("/");
   };
 
-  const jobs = () => {};
+  const jobs = () => {
+    navigate("/getjob");
+  };
 
   return (
     <div id="navContainer">
