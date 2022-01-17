@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import "./login.css";
 
 export const Login = () => {
   const [form, setForm] = useState([]);
@@ -53,7 +54,7 @@ export const Login = () => {
   };
 
   return (
-    <div>
+    <div id="loginContainer">
       <input
         type="text"
         placeholder="Enter Email here"
@@ -66,7 +67,9 @@ export const Login = () => {
         name="password"
         onChange={handleChange}
       />
-      <button onClick={handleLogin}>Login</button>
+      <button id="loginButton" onClick={handleLogin}>
+        Login
+      </button>
     </div>
   );
 };
