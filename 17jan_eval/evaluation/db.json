@@ -35,6 +35,15 @@
       "location": "banglore",
       "job_type": "contract",
       "id": 4
+    },
+    {
+      "comapany_name": "rakha infotech",
+      "job_title": "software engineer",
+      "salary_range": "4500000",
+      "job_discription": "engineer",
+      "location": "haryana",
+      "job_type": "remote",
+      "id": 5
     }
   ]
 }
