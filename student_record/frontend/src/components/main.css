@@ -1,0 +1,38 @@
+table {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  backdrop-filter: blur(7px);
+}
+th {
+  padding: 8px 70px;
+  background-color: #54bab9;
+  margin-right: 10%;
+  color: #fbf8f1;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+td {
+  border-bottom: 1px solid #54bab9;
+}
+
+.profile {
+  width: 100px;
+}
+
+.pageButton {
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: rgba(216, 224, 230, 0.87);
+  border: 1px solid rgb(102, 100, 100);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.pageButton:hover {
+  background-color: #bffff0;
+}

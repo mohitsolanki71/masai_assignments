@@ -1,0 +1,15 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #bffff0;
+  opacity: 0.7;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  margin: 0px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}

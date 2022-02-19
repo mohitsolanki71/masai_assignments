@@ -1,0 +1,17 @@
+#studentData {
+  display: flex;
+  margin: 40px auto;
+  justify-content: center;
+  text-align: left;
+}
+#studentData div {
+  margin: 10px;
+}
+.userImage {
+  width: 300px;
+  height: 400px;
+}
+
+.detailDiv {
+  color: rgb(80, 79, 79);
+}
