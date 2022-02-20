@@ -43,19 +43,6 @@ export const Login = () => {
       });
   };
 
-  //   useEffect(() => {
-  //     getToken();
-  //   }, [handleLogin]);
-
-  //   const getToken = () => {
-  //     let user_token = JSON.parse(localStorage.getItem("userToken"));
-  //     if (user_token) {
-  //       handleToken(user_token.token);
-  //       navigate("/student");
-  //       console.log("User:", user_token);
-  //     }
-  //   };
-
   return (
     <div id="loginBox">
       <input

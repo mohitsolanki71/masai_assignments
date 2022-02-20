@@ -6,7 +6,7 @@ table {
   backdrop-filter: blur(7px);
 }
 th {
-  padding: 8px 70px;
+  padding: 8px 60px;
   background-color: #54bab9;
   margin-right: 10%;
   color: #fbf8f1;
@@ -35,4 +35,26 @@ td {
 
 .pageButton:hover {
   background-color: #bffff0;
+}
+#allInformation {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+#tableDiv {
+  width: 80%;
+}
+#sideDiv {
+  width: 20%;
+}
+
+.sideText {
+  font-size: 19px;
+  font-weight: bold;
+}
+#sortSelect {
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 12px;
 }
