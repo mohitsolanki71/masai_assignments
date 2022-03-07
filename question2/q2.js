@@ -1,5 +1,5 @@
-let arrival = [900, 940, 950, 1100, 1500, 1800];
-let departure = [910, 1200, 1120, 1130, 1900, 2000];
+let arrival = [600, 700, 850, 1050, 1200, 1700];
+let departure = [800, 900, 1100, 1230, 1900, 2200];
 let n = arrival.length;
 
 function totalPlatform(n, arrival, departure) {
